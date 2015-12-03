@@ -1,0 +1,8 @@
+/home/fei/RoboFEI-HT.Qlearning/build/lib/libdxl_hal.so
+/home/fei/RoboFEI-HT.Qlearning/build/lib/libdynamixel.so
+/home/fei/RoboFEI-HT.Qlearning/build/lib/libblackboard.so
+/home/fei/RoboFEI-HT.Qlearning/build/lib/liblibcontrol.so
+/home/fei/RoboFEI-HT.Qlearning/build/bin/control
+/home/fei/RoboFEI-HT.Qlearning/build/lib/libcomms.so
+/home/fei/RoboFEI-HT.Qlearning/build/lib/libregisters.so
+/home/fei/RoboFEI-HT.Qlearning/build/bin/imu

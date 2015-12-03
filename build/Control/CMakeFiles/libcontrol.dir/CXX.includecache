@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/fei/RoboFEI-HT.Qlearning/Control/src/ql.cpp
+cstdlib
+-
+ql.h
+/home/fei/RoboFEI-HT.Qlearning/Control/src/ql.h
+stdio.h
+-
+time.h
+-
+
+/home/fei/RoboFEI-HT.Qlearning/Control/src/ql.h
+random
+-
+
