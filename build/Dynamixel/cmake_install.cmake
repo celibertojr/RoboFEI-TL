@@ -1,4 +1,4 @@
-# Install script for directory: /home/fei/RoboFEI-HT.Qlearning/Dynamixel
+# Install script for directory: /home/luiz/RoboFEI-TL/Dynamixel
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -33,49 +33,37 @@ IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  IF(EXISTS "$ENV{DESTDIR}/home/fei/RoboFEI-HT.Qlearning/build/lib/libdxl_hal.so" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/fei/RoboFEI-HT.Qlearning/build/lib/libdxl_hal.so")
+  IF(EXISTS "$ENV{DESTDIR}/home/luiz/RoboFEI-TL/build/lib/libdxl_hal.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/luiz/RoboFEI-TL/build/lib/libdxl_hal.so")
     FILE(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/home/fei/RoboFEI-HT.Qlearning/build/lib/libdxl_hal.so"
+         FILE "$ENV{DESTDIR}/home/luiz/RoboFEI-TL/build/lib/libdxl_hal.so"
          RPATH "")
   ENDIF()
-  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/fei/RoboFEI-HT.Qlearning/build/lib/libdxl_hal.so")
-  IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-  IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/fei/RoboFEI-HT.Qlearning/build/lib" TYPE SHARED_LIBRARY FILES "/home/fei/RoboFEI-HT.Qlearning/build/Dynamixel/libdxl_hal.so")
-  IF(EXISTS "$ENV{DESTDIR}/home/fei/RoboFEI-HT.Qlearning/build/lib/libdxl_hal.so" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/fei/RoboFEI-HT.Qlearning/build/lib/libdxl_hal.so")
+  list(APPEND CPACK_ABSOLUTE_DESTINATION_FILES
+   "/home/luiz/RoboFEI-TL/build/lib/libdxl_hal.so")
+FILE(INSTALL DESTINATION "/home/luiz/RoboFEI-TL/build/lib" TYPE SHARED_LIBRARY FILES "/home/luiz/RoboFEI-TL/build/Dynamixel/libdxl_hal.so")
+  IF(EXISTS "$ENV{DESTDIR}/home/luiz/RoboFEI-TL/build/lib/libdxl_hal.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/luiz/RoboFEI-TL/build/lib/libdxl_hal.so")
     IF(CMAKE_INSTALL_DO_STRIP)
-      EXECUTE_PROCESS(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/fei/RoboFEI-HT.Qlearning/build/lib/libdxl_hal.so")
+      EXECUTE_PROCESS(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/luiz/RoboFEI-TL/build/lib/libdxl_hal.so")
     ENDIF(CMAKE_INSTALL_DO_STRIP)
   ENDIF()
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  IF(EXISTS "$ENV{DESTDIR}/home/fei/RoboFEI-HT.Qlearning/build/lib/libdynamixel.so" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/fei/RoboFEI-HT.Qlearning/build/lib/libdynamixel.so")
+  IF(EXISTS "$ENV{DESTDIR}/home/luiz/RoboFEI-TL/build/lib/libdynamixel.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/luiz/RoboFEI-TL/build/lib/libdynamixel.so")
     FILE(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/home/fei/RoboFEI-HT.Qlearning/build/lib/libdynamixel.so"
+         FILE "$ENV{DESTDIR}/home/luiz/RoboFEI-TL/build/lib/libdynamixel.so"
          RPATH "")
   ENDIF()
-  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/fei/RoboFEI-HT.Qlearning/build/lib/libdynamixel.so")
-  IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-  IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/fei/RoboFEI-HT.Qlearning/build/lib" TYPE SHARED_LIBRARY FILES "/home/fei/RoboFEI-HT.Qlearning/build/Dynamixel/libdynamixel.so")
-  IF(EXISTS "$ENV{DESTDIR}/home/fei/RoboFEI-HT.Qlearning/build/lib/libdynamixel.so" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/fei/RoboFEI-HT.Qlearning/build/lib/libdynamixel.so")
+  list(APPEND CPACK_ABSOLUTE_DESTINATION_FILES
+   "/home/luiz/RoboFEI-TL/build/lib/libdynamixel.so")
+FILE(INSTALL DESTINATION "/home/luiz/RoboFEI-TL/build/lib" TYPE SHARED_LIBRARY FILES "/home/luiz/RoboFEI-TL/build/Dynamixel/libdynamixel.so")
+  IF(EXISTS "$ENV{DESTDIR}/home/luiz/RoboFEI-TL/build/lib/libdynamixel.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/luiz/RoboFEI-TL/build/lib/libdynamixel.so")
     IF(CMAKE_INSTALL_DO_STRIP)
-      EXECUTE_PROCESS(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/fei/RoboFEI-HT.Qlearning/build/lib/libdynamixel.so")
+      EXECUTE_PROCESS(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/luiz/RoboFEI-TL/build/lib/libdynamixel.so")
     ENDIF(CMAKE_INSTALL_DO_STRIP)
   ENDIF()
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")

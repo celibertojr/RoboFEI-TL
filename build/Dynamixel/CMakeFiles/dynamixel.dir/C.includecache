@@ -12,9 +12,9 @@
 stdio.h
 -
 
-/home/fei/RoboFEI-HT.Qlearning/Dynamixel/src/dynamixel.c
+/home/luiz/RoboFEI-TL/Dynamixel/src/dynamixel.c
 dxl_hal.h
-/home/fei/RoboFEI-HT.Qlearning/Dynamixel/src/dxl_hal.h
+/home/luiz/RoboFEI-TL/Dynamixel/src/dxl_hal.h
 dynamixel.h
-/home/fei/RoboFEI-HT.Qlearning/Dynamixel/src/dynamixel.h
+/home/luiz/RoboFEI-TL/Dynamixel/src/dynamixel.h
 

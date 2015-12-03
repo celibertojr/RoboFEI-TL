@@ -64,7 +64,9 @@ void saveTime(unsigned int Episodio, unsigned int tempo);
 float caso_para_Robo(float valor); //luiz
 float robo_para_caso(float valor); //luiz
 void similaridade(float AnguloQuadril, int estado); //luiz
-
+float caso_para_Robo(float valor); //luiz
+float robo_para_caso(float valor); //luiz
+void similaridade(float AnguloQuadril, int estado); //luiz
 
 
 //////global variables////////////////////////////////////////////////
@@ -249,6 +251,9 @@ for(int x=0;x<121;x++)
 	//---------------------------------------------
 }
 
+le_arquivo_casos(); //carrega casos //Luiz
+printf("Casos Carregados !!!..............\n"); //Luiz
+
 //================================================================================================
 //---------------------------------Inicia o Aprendizado-------------------------------------------
 do
@@ -337,6 +342,23 @@ do
     do
     {
         servo_funcionando();
+
+	//****** TL ******* //Luiz
+    
+        //vária de 0 a 1024 corresponde de 0 a 300 graus
+        // cada valor do encoder = 0,29 graus.
+        int decoderM=dxl_read_word( ServoBalanco1, P_PRESENT_POSITION_L); //peguei so um motor
+	float anguloM=0;
+	anguloM=decoderM*0,29;
+        anguloM=robo_para_caso(anguloM);
+	similaridade(anguloM,estadoNovo); //procura na base de casos
+
+	//**************************************************
+
+
+
+
+
 	    //std::cout<<"estado = "<<estado<<std::endl;
 	    //std::cout<<"Stand = "<<StandupPos[9]<<std::endl;
 	    //std::cout<<"dxl = "<<dxl_read_word( 10, P_PRESENT_POSITION_L)<<std::endl;
@@ -620,7 +642,147 @@ void filtro_imu(double 	&imu_med, double &imu_medy)
 	imu_med  = imu_soma / 25;
 	imu_medy  = imu_somay / 25;
 	//-------------------------------------------------------------------------------
-}	
+}
+
+//*********************manipulacao dos casos // arquivos // luiz ***********************************
+//****************** CASOS ****************************************
+//////// Manipulacao dos arquivos com casos
+
+void le_arquivo_casos()
+{
+	
+	int MAX_LEN =300;
+	char linha[MAX_LEN];
+        //char * linha = malloc(MAX_LEN+1);
+	//char nome[300];
+	char temp[300];
+	char *p;
+	int n_casos=0;
+	
+	FILE *arq;
+	//arq=fopen("/home/fei/RoboFEI-TL/casos.txt", "r"); //
+	arq=fopen("/home/fei/RoboFEI-TL/casos.txt", "r");
+	fgets (linha, MAX_LEN, arq);
+	///cout<<"saiu1"<<endl;
+	
+	while ( ! feof(arq) )
+	//while(n_casos<100)
+    	{
+                //cout<<"-------"<<endl;
+		p = linha;
+		p = extraiDado (p, temp); //palavra numero:
+		//cout<<"numero "<<p<<endl;
+		p = extraiDado (p, temp); //pega o P:
+                //cout<<"P: "<<p<<endl;
+		//printf("%s ",temp);
+		//p = extraiDado (p, temp); //pega P:
+		//cout<<"P "<<p<<endl;
+		p = extraiDado (p, temp); //pega 01		
+		CASOS_tetha1[n_casos]=atof(temp);
+		//cout<<"Valor1: "<<p<<endl;	
+	
+		p = extraiDado (p, temp); //pega 02	
+		CASOS_tetha2[n_casos]=atof(temp);
+		//cout<<"Valor2: "<<p<<endl;	
+		
+		p = extraiDado (p, temp); //pega A:
+                //cout<<"A: "<<p<<endl;
+
+		p = extraiDado (p, temp); //pega a acao
+		CASOS_acao[n_casos]=atoi(temp);
+		//cout<<"Acao: "<<p<<endl;
+		
+		p = extraiDado (p, temp);//pega R:
+                //cout<<"Pegou R: "<<p<<endl;
+
+		p = extraiDado (p, temp);// pega o valor de R_AC
+		CASOS_reward_acao[n_casos]=0.1*atof(temp);
+		//cout<<"Valor R: "<<p<<endl;
+		
+		//printf("l %d, Valor 1 %f, Valor 2 %f \n",n_casos, CASOS_tetha1[n_casos],CASOS_tetha2[n_casos]=atof(temp));
+		
+		fgets (linha, 255, arq);
+		
+		n_casos++;
+		
+
+	}
+	//printf("Descarregando Arquivo\n")
+
+	fclose(arq);
+
+	CASOS_USADOS=n_casos;
+	cout<<"Casos carregado----------"<<endl;
+//Teste para ver se estava carregando corretamente os caso mesmo.	
+	
+	/*FILE *run;
+	run = fopen("copia_casos_arquivados.txt", "w");
+	
+	for (int i = 0; i < CASOS_USADOS; ++i) 
+	{
+	fprintf(run,"caso: %d P: %f %f A: %d R_AC: %f \n", i,CASOS_tetha1[i],CASOS_tetha2[i],CASOS_acao[i],CASOS_reward_acao[i]) ;
+	}
+
+	fclose(run);*/
+}
+
+char *extraiDado (char *buffer, char *temp)
+{
+    int i=0;
+	
+    do {
+	temp[i] = *buffer;
+	buffer++; i++;
+    } 
+    while (*buffer != ' '); temp[i] = '\0';
+		
+    return ++buffer;
+}
+
+ void similaridade(float AnguloQuadril, int estado)
+{
+
+	double fatorsimilaridade = 0.5;
+	double valorSimilaridade = 0;
+	int valorAcao = 0;
+
+	//CASOS_tetha2[i] = valor quadril
+   
+
+  for (int i = 0; i < CASOS_USADOS; ++i)
+	{
+		//distancia local generica.
+		valorSimilaridade = CASOS_tetha2[i]- AnguloQuadril;
+
+                 if(valorSimilaridade < fatorsimilaridade)
+			{valorAcao=CASOS_acao[i];}
+
+	}
+
+	if(valorAcao==1)heuristic[estado][0]=1000;
+	else if(valorAcao==2)heuristic[estado][1]=1000;
+	//else if(valorAcao==2)heuristic[estado][0]=1;  //arrumar
+
+}
+
+//************ Algoritmo de Caso para Robo *****************************
+float caso_para_Robo(float valor)
+{
+   float saida;
+   saida=(150*valor)/90;
+   return saida;
+}
+//************ Algoritmo de Robo para Caso *********************************
+
+float robo_para_caso(float valor)
+{
+   float saida;
+   saida=(90*valor)/150;
+   return saida;
+}
+
+
+//*************************************************************************************	
 	
 
 

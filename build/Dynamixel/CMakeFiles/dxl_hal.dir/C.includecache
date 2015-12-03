@@ -8,7 +8,7 @@
 
 ../Dynamixel/include/dxl_hal.h
 
-/home/fei/RoboFEI-HT.Qlearning/Dynamixel/src/dxl_hal.c
+/home/luiz/RoboFEI-TL/Dynamixel/src/dxl_hal.c
 stdio.h
 -
 stdio.h
@@ -28,5 +28,5 @@ sys/ioctl.h
 sys/time.h
 -
 dxl_hal.h
-/home/fei/RoboFEI-HT.Qlearning/Dynamixel/src/dxl_hal.h
+/home/luiz/RoboFEI-TL/Dynamixel/src/dxl_hal.h
 

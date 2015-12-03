@@ -60,6 +60,15 @@ void filtro_imu(double 	&imu_med, double &imu_medy);
 
 void servo_funcionando();
 void saveTime(unsigned int Episodio, unsigned int tempo);
+/// Transfer LEarning
+float caso_para_Robo(float valor); //luiz
+float robo_para_caso(float valor); //luiz
+void similaridade(float AnguloQuadril, int estado); //luiz
+float caso_para_Robo(float valor); //luiz
+float robo_para_caso(float valor); //luiz
+void similaridade(float AnguloQuadril, int estado); //luiz
+
+
 //////global variables////////////////////////////////////////////////
 struct timeval inicio, final;
 int tmili;
@@ -242,6 +251,9 @@ for(int x=0;x<121;x++)
 	//---------------------------------------------
 }
 
+le_arquivo_casos(); //carrega casos //Luiz
+printf("Casos Carregados !!!..............\n"); //Luiz
+
 //================================================================================================
 //---------------------------------Inicia o Aprendizado-------------------------------------------
 do
@@ -330,6 +342,23 @@ do
     do
     {
         servo_funcionando();
+
+	//****** TL ******* //Luiz
+    
+        //vária de 0 a 1024 corresponde de 0 a 300 graus
+        // cada valor do encoder = 0,29 graus.
+        int decoderM=dxl_read_word( ServoBalanco1, P_PRESENT_POSITION_L); //peguei so um motor
+	float anguloM=0;
+	anguloM=decoderM*0,29;
+        anguloM=robo_para_caso(anguloM);
+	similaridade(anguloM,estadoNovo); //procura na base de casos
+
+	//**************************************************
+
+
+
+
+
 	    //std::cout<<"estado = "<<estado<<std::endl;
 	    //std::cout<<"Stand = "<<StandupPos[9]<<std::endl;
 	    //std::cout<<"dxl = "<<dxl_read_word( 10, P_PRESENT_POSITION_L)<<std::endl;

@@ -1,0 +1,1 @@
+/usr/bin/cc  -fPIC    -shared -Wl,-soname,libdxl_hal.so -o libdxl_hal.so CMakeFiles/dxl_hal.dir/src/dxl_hal.c.o 

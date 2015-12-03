@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../Dynamixel/include/dxl_hal.h
+
+../Dynamixel/include/dynamixel.h
+stdio.h
+-
+
+/home/fei/RoboFEI-HT.Qlearning/Dynamixel/src/dynamixel.c
+dxl_hal.h
+/home/fei/RoboFEI-HT.Qlearning/Dynamixel/src/dxl_hal.h
+dynamixel.h
+/home/fei/RoboFEI-HT.Qlearning/Dynamixel/src/dynamixel.h
+

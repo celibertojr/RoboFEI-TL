@@ -1,0 +1,1 @@
+KERNEL=="ttyUSB?", SUBSYSTEM=="tty", ATTRS{idVendor}=="0403",  ATTRS{idProduct}=="6001", ATTRS{serial}!="A501VRKI", ATTRS{serial}!="A501VROG", ATTRS{serial}!="A501VM7A", ATTRS{product}=="FT232R USB UART", MODE="0777", SYMLINK+="robot/servo%n"
