@@ -207,8 +207,8 @@ Control/preinstall:
 # Target rules for target Control/CMakeFiles/control.dir
 
 # All Build rule for target.
-Control/CMakeFiles/control.dir/all: Dynamixel/CMakeFiles/dxl_hal.dir/all
 Control/CMakeFiles/control.dir/all: Blackboard/CMakeFiles/blackboard.dir/all
+Control/CMakeFiles/control.dir/all: Dynamixel/CMakeFiles/dxl_hal.dir/all
 Control/CMakeFiles/control.dir/all: Dynamixel/CMakeFiles/dynamixel.dir/all
 Control/CMakeFiles/control.dir/all: Control/CMakeFiles/libcontrol.dir/all
 	$(MAKE) -f Control/CMakeFiles/control.dir/build.make Control/CMakeFiles/control.dir/depend
@@ -334,8 +334,8 @@ clean: IMU/CMakeFiles/comms.dir/clean
 # Target rules for target IMU/CMakeFiles/imu.dir
 
 # All Build rule for target.
-IMU/CMakeFiles/imu.dir/all: IMU/CMakeFiles/registers.dir/all
 IMU/CMakeFiles/imu.dir/all: Blackboard/CMakeFiles/blackboard.dir/all
+IMU/CMakeFiles/imu.dir/all: IMU/CMakeFiles/registers.dir/all
 IMU/CMakeFiles/imu.dir/all: IMU/CMakeFiles/comms.dir/all
 	$(MAKE) -f IMU/CMakeFiles/imu.dir/build.make IMU/CMakeFiles/imu.dir/depend
 	$(MAKE) -f IMU/CMakeFiles/imu.dir/build.make IMU/CMakeFiles/imu.dir/build
