@@ -60,13 +60,19 @@ void filtro_imu(double 	&imu_med, double &imu_medy);
 
 void servo_funcionando();
 void saveTime(unsigned int Episodio, unsigned int tempo);
+
 /// Transfer LEarning
 float caso_para_Robo(float valor); //luiz
 float robo_para_caso(float valor); //luiz
 void similaridade(float AnguloQuadril, int estado); //luiz
-float caso_para_Robo(float valor); //luiz
-float robo_para_caso(float valor); //luiz
-void similaridade(float AnguloQuadril, int estado); //luiz
+int CASOS_USADOS=0;
+void le_arquivo_casos();
+char *extraiDado (char *buffer, char *temp);
+#define NUM_CASOS 400        
+double	CASOS_tetha1[NUM_CASOS];
+double CASOS_tetha2[NUM_CASOS];
+int CASOS_acao[NUM_CASOS];
+double CASOS_reward_acao[NUM_CASOS];
 
 
 //////global variables////////////////////////////////////////////////
@@ -752,7 +758,7 @@ char *extraiDado (char *buffer, char *temp)
   for (int i = 0; i < CASOS_USADOS; ++i)
 	{
 		//distancia local generica.
-		valorSimilaridade = CASOS_tetha2[i]- AnguloQuadril;
+		valorSimilaridade = fabs(CASOS_tetha2[i])- fabs(AnguloQuadril);
 
                  if(valorSimilaridade < fatorsimilaridade)
 			{valorAcao=CASOS_acao[i];}

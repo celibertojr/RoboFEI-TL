@@ -335,8 +335,8 @@ clean: IMU/CMakeFiles/comms.dir/clean
 
 # All Build rule for target.
 IMU/CMakeFiles/imu.dir/all: Blackboard/CMakeFiles/blackboard.dir/all
-IMU/CMakeFiles/imu.dir/all: IMU/CMakeFiles/registers.dir/all
 IMU/CMakeFiles/imu.dir/all: IMU/CMakeFiles/comms.dir/all
+IMU/CMakeFiles/imu.dir/all: IMU/CMakeFiles/registers.dir/all
 	$(MAKE) -f IMU/CMakeFiles/imu.dir/build.make IMU/CMakeFiles/imu.dir/depend
 	$(MAKE) -f IMU/CMakeFiles/imu.dir/build.make IMU/CMakeFiles/imu.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/luiz/RoboFEI-TL/build/CMakeFiles  6

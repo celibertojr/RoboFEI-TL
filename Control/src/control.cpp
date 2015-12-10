@@ -758,7 +758,8 @@ char *extraiDado (char *buffer, char *temp)
   for (int i = 0; i < CASOS_USADOS; ++i)
 	{
 		//distancia local generica.
-		valorSimilaridade = CASOS_tetha2[i]- AnguloQuadril;
+
+		valorSimilaridade = fabs(CASOS_tetha2[i])- fabs(AnguloQuadril);
 
                  if(valorSimilaridade < fatorsimilaridade)
 			{valorAcao=CASOS_acao[i];}
