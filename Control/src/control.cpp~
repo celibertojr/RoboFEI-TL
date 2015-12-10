@@ -748,28 +748,30 @@ char *extraiDado (char *buffer, char *temp)
  void similaridade(float AnguloQuadril, int estado)
 {
 
-	double fatorsimilaridade = 0.5;
+	double fatorsimilaridade = 1;
 	double valorSimilaridade = 0;
 	int valorAcao = 0;
+	double Anguloescolhido=0;
 
-	//CASOS_tetha2[i] = valor quadril
+	
    
 
   for (int i = 0; i < CASOS_USADOS; ++i)
 	{
-		//distancia local generica.
+		
 
 		valorSimilaridade = fabs(CASOS_tetha2[i])- fabs(AnguloQuadril);
 
-                 if(valorSimilaridade < fatorsimilaridade)
-			{valorAcao=CASOS_acao[i];}
+                 if(valorSimilaridade < fatorsimilaridade) {Anguloescolhido=CASOS_tetha2[i];valorAcao=CASOS_acao[i];}
 
 	}
 
-	if(valorAcao==1)heuristic[estado][0]=1000;
-	else if(valorAcao==2)heuristic[estado][1]=1000;
-	//else if(valorAcao==2)heuristic[estado][0]=1;  //arrumar
 
+
+	if(valorAcao==1)heuristic[estado][0]=100;
+	else if(valorAcao==2)heuristic[estado][1]=100;
+
+        cout<<"Angulo Robo: "<<AnguloQuadril<<"Angulo Caso: "<<Anguloescolhido<<"acao escolhida: "<<valorAcao<<endl;
 
     /*
      //Valores das heurísticas----------------------
