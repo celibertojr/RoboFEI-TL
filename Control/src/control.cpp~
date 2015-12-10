@@ -758,6 +758,7 @@ char *extraiDado (char *buffer, char *temp)
   for (int i = 0; i < CASOS_USADOS; ++i)
 	{
 		//distancia local generica.
+
 		valorSimilaridade = fabs(CASOS_tetha2[i])- fabs(AnguloQuadril);
 
                  if(valorSimilaridade < fatorsimilaridade)
@@ -768,6 +769,22 @@ char *extraiDado (char *buffer, char *temp)
 	if(valorAcao==1)heuristic[estado][0]=1000;
 	else if(valorAcao==2)heuristic[estado][1]=1000;
 	//else if(valorAcao==2)heuristic[estado][0]=1;  //arrumar
+
+
+    /*
+     //Valores das heurísticas----------------------
+	if(x<30)
+	{
+	    heuristic[x][0]=0;
+	    heuristic[x][1]=10;
+	}
+	else
+	{
+	    heuristic[x][0]=10;
+	    heuristic[x][1]=0;
+	}*/
+
+
 
 }
 

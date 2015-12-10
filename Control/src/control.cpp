@@ -770,6 +770,22 @@ char *extraiDado (char *buffer, char *temp)
 	else if(valorAcao==2)heuristic[estado][1]=1000;
 	//else if(valorAcao==2)heuristic[estado][0]=1;  //arrumar
 
+
+    /*
+     //Valores das heurísticas----------------------
+	if(x<30)
+	{
+	    heuristic[x][0]=0;
+	    heuristic[x][1]=10;
+	}
+	else
+	{
+	    heuristic[x][0]=10;
+	    heuristic[x][1]=0;
+	}*/
+
+
+
 }
 
 //************ Algoritmo de Caso para Robo *****************************
